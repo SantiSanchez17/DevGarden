@@ -1,13 +1,7 @@
-import express from 'express'
-
-const app = express();
+import server from "./server";
 
 const puerto = process.env.PORT || 4000;
 
-app.get('/', (req,res)=>{
-    res.send('fino el pollo');
-})
-
-app.listen(puerto, ()=>{
+server.listen(puerto, ()=>{
     console.log('funca');
 })
