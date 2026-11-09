@@ -1,3 +1,4 @@
+import colors from 'colors'
 import mongoose from "mongoose";
 
 export const conectionDB = async () => {
@@ -6,11 +7,11 @@ export const conectionDB = async () => {
     const mongoDB = process.env.DB;
 
     try {
-        const url = `mongodb+srv://ssanchezg:yVRdz3V5PlpNMQLf@cluster1.nt6fvoc.mongodb.net/devgarden`
+        const url = `mongodb+srv://${mongoUser}:${mongoPassword}@cluster1.nt6fvoc.mongodb.net/${mongoDB}`
         const { connection } = await mongoose.connect(url)
         const conectInfo = `${connection.host}:${connection.db.databaseName}`
-        console.log('Conectado exitosamente', conectInfo);
+        console.log(colors.blue.bold('Conectado exitosamente'), colors.cyan.bold(conectInfo));
     } catch (error) {
-        console.log(error.message);
+        console.log(colors.red.bold(error.message));
     }
 }

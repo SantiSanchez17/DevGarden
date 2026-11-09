@@ -10,6 +10,9 @@
     "build": "tsc"
   },
   "dependencies": {
+    "color": "^5.0.3",
+    "colors": "^1.4.0",
+    "dotenv": "^18.0.10",
     "express": "^5.3.0",
     "mongoose": "^9.11.4"
   },
