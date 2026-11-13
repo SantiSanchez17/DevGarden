@@ -8,11 +8,19 @@ const userSchema = new Schema({
         require: true,
         trim: true
     },
+    handle: {
+        type: String,
+        require: true,
+        unique: true,
+        trim: true,
+        lowercase: true
+    },
     email: {
         type: String,
         require: true,
         unique: true,
-        trim: true
+        trim: true,
+        lowercase: true
     },
     password: {
         type: String,

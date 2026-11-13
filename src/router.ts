@@ -1,10 +1,16 @@
-import { Router } from 'express'
-
+import { Router } from 'express';
+import { createUser } from './handlers/userH';
+import { body } from 'express-validator'
 const router = Router()
 
-router.post('/auth/registro', (req, res) => {
-    console.log('Log In:', req.body);
-})
+router.post('/auth/registro',
+    body(['name', 'handle', 'email', 'password'])
+        .notEmpty()
+        .withMessage('Hay campos vacios'),
+    body('email')
+        .isEmail()
+        .withMessage('Formato de correo invalido'),
+    createUser)
 
 router.get('/', (req, res) => {
     res.send('Inicio')

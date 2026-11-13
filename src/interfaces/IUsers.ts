@@ -4,6 +4,7 @@ export interface IUser extends DTOUser{
 
 export interface DTOUser {
     name: string,
+    handle: string,
     email: string,
     password: string,
 }
